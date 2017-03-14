@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="learn.js"></script>
+
+</head>
+<body onload="checkCookies()">
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)" onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">Click</div>
+    <img src="images/eg_bulboff.gif" id="bulb" onclick="lightOp()">
+    <br/>
+    <br/>
+    <label id="want_to_tell" type="text">zzzzz</label>
+    <button type="button" onclick="louder()">Louder!</button>
+    <br/>
+    <label>To UPPER: </label><input id="to_upper_input" type="text" onchange="upper_text()"></input>
+    <div id="brothers" onmouseover="call_bro3()" onmouseout="go_bro3()">
+        <p>This is brother 1</p>
+        <p>This is brother 2</p>
+    </div>
+    <br/>
+    <label>regexp test: </label><input id="regexp_test_input" type="text" onchange="test_regexp()"></input>
+    <br/>
+</body>
+
+</html>
+
