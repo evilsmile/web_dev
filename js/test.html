@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="learn.js"></script>
 
 </head>
-<body onload="checkCookies()">
+<body onload="secondsCounter();checkCookies()">
     <div onmousedown="mDown(this)" onmouseup="mUp(this)" onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">Click</div>
     <img src="images/eg_bulboff.gif" id="bulb" onclick="lightOp()">
     <br/>
@@ -20,6 +21,16 @@
     <br/>
     <label>regexp test: </label><input id="regexp_test_input" type="text" onchange="test_regexp()"></input>
     <br/>
+    <button type="button" onclick="go_baidu()">Go baidu!</button>
+    <br/>
+    <button type="button" onclick="history_back()">History Back!</button>
+    <button type="button" onclick="history_forward()">History Forward!</button>
+    <br/>
+    <label id="seconds_counter"></label><button type="button" onclick="stopCounter()">Stop counter</button>
+    <button type="button" onclick="startCounter()">Start counter</button>
+
+    <br/>
+
 </body>
 
 </html>
