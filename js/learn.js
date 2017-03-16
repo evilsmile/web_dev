@@ -250,17 +250,22 @@ var cnt = 0;
 var test_timer;
 function secondsCounter()
 {
-    document.getElementById("seconds_counter").innerHTML = cnt;
+    $("#seconds_counter").html(cnt);
     cnt = cnt + 1;
     test_timer = setTimeout("secondsCounter()", 1000);
 }
 
+$(document).ready(secondsCounter);
+$(document).ready(checkCookies);
+
 function startCounter()
 {
+    $("#seconds_counter").attr("style", "color:black");
     test_timer = setTimeout("secondsCounter()", 1000);
 }
 function stopCounter()
 {
+    $("#seconds_counter").attr("style", "color:red");
     clearTimeout(test_timer);
 }
 
