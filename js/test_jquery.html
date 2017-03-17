@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-latest.js"></script>
+    <script src="jquery_learn.js"></script>
+
+    <style type="text/css">
+        div.panel,p.panel_flip_down,p.panel_flip_up,p.panel_flip_toggle  {
+            margin: 0px;
+            padding: 5px;
+            text-align: center;
+            background: #e5eecc;
+            border: solid 1px #c3c3c3;
+        }
+        div.panel {
+            height: 120px;
+            display: none;
+        }
+    </style>
+</head>
+<body >
+
+    <h2>This is a heading</h2>
+    <p>This is a paragraph</p>
+    <p>This is another paragraph</p>
+    <button type="button" id="hide_p">Hide P</button>
+    <button type="button" id="show_p">Show P</button>
+    <button type="button" id="toggle_p">Toggle P</button>
+
+    <br/>
+
+    <button type="button" id="show_fade">Fade Show</button>
+    <button type="button" id="hide_fade">Fade Hide</button>
+    <button type="button" id="toggle_fade">Fade Toggle</button>
+    <button type="button" id="to_fade">Fade TO</button>
+
+    <br/>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div>
+    <br/>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div>
+    <br/>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+    <br/>
+
+    <div class="panel">
+        <p>愿得一心人，白首不相离</p>
+    </div>
+    <p class="panel_flip_down">打开重点</p>
+    <p class="panel_flip_up">收起重点</p>
+    <p class="panel_flip_toggle">Toggle重点</p>
+
+    <br/>
+    <button id="animate">Animate</button>
+    <br/>
+
+    <div id="green_block" style="background:#98bf21;height:100px;width:100px;position:absolute"></div>
+    <br/>
+</body>
+</html>
