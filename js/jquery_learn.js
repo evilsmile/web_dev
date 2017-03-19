@@ -316,6 +316,7 @@ $(document).ready(function() {
     // GET - 从指定的资源请求数据。可能返回缓存数据
     // POST - 向指定的资源提交要处理的数据. 不会缓存数据，并且常用于连同请求一起发送数据
     
+    $("#load_ajax").click(function() {
     // GET：语法: $.get(URL, callback)
     $.get("ajax_test.asp", function(data, status) {
             if (status == "success") {
@@ -331,6 +332,10 @@ $(document).ready(function() {
             function(data, status) {
                 alert("Data: " + data + "\nStatus: " + status);
             });
+    });
+
+    // XMLHttpRequest 是AJAX 的基础
+    // XMLHttpRequest 对象用于在后台与服务器交换数据。这意味着可以不重新加载整个网页的情况下，对某部分进行更新 
 
 
     //////////////////////////////////////////////////////////////////////
