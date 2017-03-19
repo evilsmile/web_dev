@@ -16,6 +16,14 @@
             height: 120px;
             display: none;
         }
+
+        .important {
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        .blue {
+            color: blue;
+        }
     </style>
 </head>
 <body >
@@ -54,8 +62,43 @@
     <br/>
     <button id="animate">Animate</button>
     <br/>
-
-    <div id="green_block" style="background:#98bf21;height:100px;width:100px;position:absolute"></div>
+    <div id="green_block" style="background:#98bf21;height:100px;width:100px;position:relative"></div>
     <br/>
+    <p id="p_to_be_operated" value="tell me">What do <b>you(</b><input type="text" id="who_are_u" value="Tip"/><b>)</b> want?</p>
+    <button id="show_p_text">Show/Set TEXt</button>
+    <button id="show_p_html">Show/Set HTMl</button>
+    <button id="show_p_value">Show/Set ValuE</button>
+    <button id="show_p_attr">Show/Set Attr</button>
+    <br/>
+
+    <br/>
+    <label id="lover_title"><i>Lovers: </i></label>
+    <ol id="lover_list">
+    <li>Na er</li>
+    <li>Xiao xian</li>
+    </ol>
+    <button id="complete_lover">CompleteLover</button>
+    <button id="more_lover">MoreLover</button>
+
+    <br>
+    <div id="to_be_deleted_div" style="height:100px;width:200px; border:1px solid black; background-color:yellow">
+        Do you like Chicken ?
+        <p> Or Dog? </p>
+        <p> Or Cat? </p>
+    </div>
+    <button id="delete_chicken_p" >Delete Chicken Choice</button>
+    <button id="delete_chicken_div" style="display:none">Delete Chicken Topic</button>
+
+    <br>
+    <div id="need_be_noticed">
+        <p> Morphay everywhere!</p>
+    </div>
+    <button id="make_important">Notice These!</button>
+    <button id="toggle_important">Toggle These!</button>
+    <button id="change_noticed_background">Change BgColor!</button>
+
+    <br>
+    <div id="w_h_test" style="height:200px;width:300px;pading:10px;margin:3px;border:1px solid blue; background-color:lightblue;"></div>
+    <button id="check_w_h">Check Size</button>
 </body>
 </html>

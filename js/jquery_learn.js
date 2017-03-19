@@ -116,6 +116,122 @@ $(document).ready(function() {
             green_block.animate({left:'100px', opacity: '0.8', height: '-=20px',  width: '-=20px' }, "slow");
             });
 
+    // 由于Javascript语句是逐一执行的，即按照次序，动画之后的语句可能会产生错误或页面冲突。为了避免这种情况，可以以参数形式添加callback函数
+    // 典型语法：$(selector).hide(speed, callback)
+    // callback 参数是一个在Hide操作完成后被执行的函数
+    $(".panel_flip_toggle").click(function() {
+            $(".panel").slideToggle("slow", function() {
+                    alert("panel has already been toggled!");
+            }) } );
+
+
+    // 三个简单实用的用于DOM操作的jQuery方法:
+    // text() - 设置或返回所选元素的文本内容
+    // html() - 设置或返回所选元素的内容(包括HTML标记)
+    // val()  - 设置或返回表单字段的值
+    var p_to_be_operated = $("#p_to_be_operated");
+    $("#show_p_text").click(function() {
+            alert("Text: " + p_to_be_operated.text());
+            p_to_be_operated.text("New " + p_to_be_operated.text());
+            });
+    $("#show_p_html").click(function() {
+            alert("Html: " + p_to_be_operated.html());
+            p_to_be_operated.html("New " + p_to_be_operated.html());
+            });
+    $("#show_p_value").click(function() {
+            alert("Value: " + $("#who_are_u").val());
+            });
+    $("#show_p_attr").click(function() {
+            alert("Value: " + $("#who_are_u").attr("value"));
+            // attr()也提供了回调函数。回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回希望使用的字符串
+            $("#who_are_u").attr("value", function(i, origValue) {
+                    return "[" + i + "]'s new " + origValue;
+            }) });
+
+    // ---- jQuery 添加元素 -----
+    // 添加新内容的四个jQuery方法
+    // + append() - 在被选元素的结尾插入内容（还在元素内)
+    // + prepend() - 在被选元素的开头插入内容（还在元素内
+    // + after() - 在被选元素之后插入内容（在元素外）
+    // + before() - 在被选元素之前插入内容(在元素外）
+    
+    // append() 和 prepend() 方法能够通过参数接收无限数量的新元素。
+    // 可以通过jQuery来生成文本/HTML（就像上面的例子那样），或者通过
+    // JS代码和DOM元素
+    $("#complete_lover").click(function() {
+        $("#lover_title").prepend("<b>Past </b>");
+        var comment = document.createElement("b");
+        comment.innerHTML = "[Never seen anymore]";
+        $("#lover_title").append(comment);
+        $("#lover_title").before($("<label></label><br>").text("true feeling"));
+            });
+    $("#more_lover").click(function() {
+        $("#lover_list").append("<li>NOOOT shown yet!</li>");
+            });
+
+      
+    // ---- jQuery删除元素 ---
+    // 如需删除元素和内容，一般可使用以下两个jQuery方法:
+    // + remove() - 删除被选元素(及其子元素)
+    // + empty() -  从被选元素中删除子元素
+
+    // 先清子元素，再清本元素
+    $("#delete_chicken_p").click(function() {
+            $("#to_be_deleted_div").empty();
+            $(this).hide();
+            $("#delete_chicken_div").show();
+            });
+    $("#delete_chicken_div").click(function() {
+            $("#to_be_deleted_div").remove();
+            $(this).hide();
+            });
+
+    // ---- jQuery 获取并设置CSS类 -----
+    // 通过jQuery可以很容易地对CSS元素进行操作
+    // + addClass() - 向被选元素添加一个或多个类
+    // + removeClass() - 从被选元素删除一个或多个类
+    // + toggleClass() - 对被选元素进行添加或删除类的切换操作
+    // + css() - 设置或返回样式属性
+
+    $("#make_important").click(function() {
+            $("#need_be_noticed").addClass("blue important");
+            });
+    $("#toggle_important").click(function() {
+            $("#need_be_noticed").toggleClass("important");
+            });
+
+    // jQuery 的css() 方法用于设置或返回被选元素的一个或多个样式属性
+    // 如需返回指定的CSS属性: css("propertyName"), 如$("p").css("background-color")
+    // 如需设置指定的CSS属性: css("propertyName", "value"), 如$("p").css("background-color", "yellow");
+    // 如需设置多个属性: css({"propertyName":"value", "propertyName":"value", ..."})
+    $("#change_noticed_background").click(function() {
+            $("#need_be_noticed p").css("background","#232343");
+            });
+    
+
+
+    // --- jQuery 尺寸 ----
+    // jQuery 提供多个处理尺寸的重要方法：
+    // + width()
+    // + height()
+    // + innerWidth()
+    // + innerHight()
+    // + outerWidth()
+    // + outerHeight()
+    $("#check_w_h").click(function() {
+            var txt = "";
+            txt += "Width of div: " + $("#w_h_test").width() + "</br>";
+            txt += "Height of div: " + $("#w_h_test").height() + "</br>";
+            txt += "Width of inner div: " + $("#w_h_test").innerWidth() + "</br>";
+            txt += "Height of inner div: " + $("#w_h_test").innerHeight() + "</br>";
+            txt += "Width of outer div: " + $("#w_h_test").outerWidth() + "</br>";
+            txt += "Height of outer div: " + $("#w_h_test").outerHeight() + "</br>";
+            txt += "Document width/height: " + $(document).outerWidth() + "x" + $(document).height() + "</br>";
+            txt += "Window width/height: " + $(window).outerWidth() + "x" + $(window).height() + "</br>";
+            $("#w_h_test").html(txt);
+            });
+
+
 
     //////////////////////////////////////////////////////////////////////
 
