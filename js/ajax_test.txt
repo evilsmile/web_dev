@@ -1,0 +1,2 @@
+<h2>jQuery and AJAX is powerful!!!</h2>
+<p id="p_from_ajax">This paragraph is provided by AJAX.</p>

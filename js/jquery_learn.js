@@ -231,6 +231,106 @@ $(document).ready(function() {
             $("#w_h_test").html(txt);
             });
 
+    // ---- jQuery 遍历 ----
+    // 向上遍历:
+    // parent()
+    // parents()
+    // parentsUntil()
+
+    // parent() 方法返回被选元素的直接父元素
+    $(".ancestor_show span").parent().css({"color":"red", "border":"2px solid red"});
+    // parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素(<html>)
+    $(".ancestor_show span").parents().css({"color":"darkblue", "border":"3px solid darkblue"});
+    // parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素,不包括until元素
+    $(".ancestor_show span").parentsUntil("div").css({"color":"green", "border":"1px solid green"});
+
+    // 向下遍历:
+    // children()
+    // find()
+
+    // children() 方法返回被选元素的所有直接子元素
+    $(".desendants_show div").children().css({"color":"yellow", "border":"2px solid yellow"});
+    
+    // find() 方法返回被选元素的后代元素，一路向下直到最后一个后代
+    // find(*)找到所有后代
+    $(".desendants_show div").find("*").css({"color":"gray"});
+    // 找到某个元素
+    $(".desendants_show div").find("span").css({"color":"red"});
+
+
+
+    // 水平遍历
+    // 有许多方法让我们可以在DOM中进行水平遍历:
+    // siblings()
+    // next()
+    // nextAll()
+    // nextUntil()
+    // prev()
+    // prevAll()
+    // prevUntil()
+    /* 大致同上，不练习了 */
+
+
+    // jQuery 过滤
+    // 三个最基本的过滤方法是: first(), last() 和 eq()。它们允许基于一组元素中的位置来选择一个特定的元素.
+    // 其他过滤方法，如 filter() 和 not() 允许选取匹配或不切尔西某项指定标准的元素.
+    
+    // first(), last() 是指从css选择器中选出的元素集的fisrt和last
+    $("#select_test div").first().css({"font-size":"32px"});
+    $("#select_test p").last().css({"font-size":"22px"});
+
+    // eq() 方法返回被选 元素中带有指定索引号的元素
+    $("#select_test div").eq(1).css({"font-size" : "2px", "color":"#82a333"});
+
+
+    // filter() 方法允许规定一个标准。不匹配这个标准的将被从集合中删除。匹配的元素返回。
+    $("div").filter("#select_test").css({"border":"2px green solid"});
+
+    $("div").not("#select_test").css({"border":"1px lightyellow solid"});
+
+
+
+    // ----- jQuery Ajax ------
+    // AJAX = 异步Javascript 和 XML (Asynchronous Javascript and XML)
+    // 简单地说，在不重载整个页面的情况下，AJAX通过后台加载数据，并在网页上进行显示
+    // jQuery 提供多个 Ajax 有关的方法. 通过这些方法可以使用HTTP GET和POST从远程服务器上请求文本、HTML、XML或JSON，同时把这些外部数据直接载入网页的被远元素中。
+    // jQuery load() 方法是最简单但强大的方法。 load()方法从服务器加载数据，并把返回的数据放入被选元素中。 
+    // 语法: $(selector).load(URL, data, callback);
+    // 必需的URL参数规定希望加载的URL
+    // 可选的data参数规定与请求一同发送的查询字符串键值对集合
+    // 可选的callback参数是load()方法完成后所执行的函数名称 
+
+    // 可选的callback参数规定当load()方法完成后所要允许的回调函数。回调函数可以设置不同的参数:
+    // responseTxt - 包含调用成功时的结果内容
+    // statusTxt - 包含调用的状态
+    // xhr - 包含XMLHttpRequest对象
+    $("#ajax_text_pos").load("ajax_test.txt", function(responseTxt, statusTxt, xhr) {
+        if (statusTxt == "success") {
+            alert("External load succ.");
+        } else if (statusTxt == "error") {
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+            }); 
+
+    // jQuery get() 和 post() 方法用于通过HTTP GET 和POST 请求从服务器请求数据
+    // GET - 从指定的资源请求数据。可能返回缓存数据
+    // POST - 向指定的资源提交要处理的数据. 不会缓存数据，并且常用于连同请求一起发送数据
+    
+    // GET：语法: $.get(URL, callback)
+    $.get("ajax_test.asp", function(data, status) {
+            if (status == "success") {
+                $("#ajax_asp_pos").html(data);
+            }
+           });
+    // POST: 语法: $.post(URL, data, callback)
+    $.post("demo_test_post.asp", 
+            {
+                name: "Donald Duck",
+                city: "Duckburg"
+            },
+            function(data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
 
 
     //////////////////////////////////////////////////////////////////////

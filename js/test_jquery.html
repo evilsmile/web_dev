@@ -24,6 +24,23 @@
         .blue {
             color: blue;
         }
+
+        .ancestor_show * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+
+        .desendants_show * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+
     </style>
 </head>
 <body >
@@ -100,5 +117,48 @@
     <br>
     <div id="w_h_test" style="height:200px;width:300px;pading:10px;margin:3px;border:1px solid blue; background-color:lightblue;"></div>
     <button id="check_w_h">Check Size</button>
+
+    <div class="ancestor_show">
+        <div style="width: 500px;">div (parent's parent's parent)
+            <ul>ul (parent's parent)
+                <li>li （parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width: 500px;">div (parent's parent)
+            <p>p (parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="desendants_show">
+        <div style="width: 500px;">div (me)
+            <ul>ul (child)
+                <li>li （child's child)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div id="select_test">
+        <h1> Welcome (idx 0) </h1>
+        <div> 
+            <p> fisrt paragraph. (idx 1) </p>
+        </div>
+        <div>
+            <p> another paragraph. (idx 2) </p>
+        </div>
+        <p> last paragraph. (idx 3) </p>
+    </div>
+
+    <div id="ajax_text_pos"></div>
+    <div id="ajax_asp_pos"></div>
+
+
 </body>
 </html>
